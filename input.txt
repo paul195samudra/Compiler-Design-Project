@@ -1,0 +1,539 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+// Single-line comment: This should be skipped by the lexical analyzer
+
+/*
+Multi-line comment to test skipping
+This comment spans multiple lines to ensure the lexer correctly ignores it.
+Line 3
+Line 4
+Line 5
+Line 6
+Line 7
+Line 8
+Line 9
+Line 10
+Line 11
+Line 12
+Line 13
+Line 14
+Line 15
+Line 16
+Line 17
+Line 18
+Line 19
+Line 20
+Line 21
+Line 22
+Line 23
+Line 24
+Line 25
+Line 26
+Line 27
+Line 28
+Line 29
+Line 30
+Line 31
+Line 32
+Line 33
+Line 34
+Line 35
+Line 36
+Line 37
+Line 38
+Line 39
+Line 40
+Line 41
+Line 42
+Line 43
+Line 44
+Line 45
+Line 46
+Line 47
+Line 48
+Line 49
+Line 50
+Line 51
+Line 52
+Line 53
+Line 54
+Line 55
+Line 56
+Line 57
+Line 58
+Line 59
+Line 60
+Line 61
+Line 62
+Line 63
+Line 64
+Line 65
+Line 66
+Line 67
+Line 68
+Line 69
+Line 70
+Line 71
+Line 72
+Line 73
+Line 74
+Line 75
+Line 76
+Line 77
+Line 78
+Line 79
+Line 80
+Line 81
+Line 82
+Line 83
+Line 84
+Line 85
+Line 86
+Line 87
+Line 88
+Line 89
+Line 90
+Line 91
+Line 92
+Line 93
+Line 94
+Line 95
+Line 96
+Line 97
+Line 98
+Line 99
+Line 100
+Line 101
+Line 102
+Line 103
+Line 104
+Line 105
+Line 106
+Line 107
+Line 108
+Line 109
+Line 110
+Line 111
+Line 112
+Line 113
+Line 114
+Line 115
+Line 116
+Line 117
+Line 118
+Line 119
+Line 120
+Line 121
+Line 122
+Line 123
+Line 124
+Line 125
+Line 126
+Line 127
+Line 128
+Line 129
+Line 130
+Line 131
+Line 132
+Line 133
+Line 134
+Line 135
+Line 136
+Line 137
+Line 138
+Line 139
+Line 140
+Line 141
+Line 142
+Line 143
+Line 144
+Line 145
+Line 146
+Line 147
+Line 148
+Line 149
+Line 150
+Line 151
+Line 152
+Line 153
+Line 154
+Line 155
+Line 156
+Line 157
+Line 158
+Line 159
+Line 160
+Line 161
+Line 162
+Line 163
+Line 164
+Line 165
+Line 166
+Line 167
+Line 168
+Line 169
+Line 170
+Line 171
+Line 172
+Line 173
+Line 174
+Line 175
+Line 176
+Line 177
+Line 178
+Line 179
+Line 180
+Line 181
+Line 182
+Line 183
+Line 184
+Line 185
+Line 186
+Line 187
+Line 188
+Line 189
+Line 190
+Line 191
+Line 192
+Line 193
+Line 194
+Line 195
+Line 196
+Line 197
+Line 198
+Line 199
+Line 200
+Line 201
+Line 202
+Line 203
+Line 204
+Line 205
+Line 206
+Line 207
+Line 208
+Line 209
+Line 210
+Line 211
+Line 212
+Line 213
+Line 214
+Line 215
+Line 216
+Line 217
+Line 218
+Line 219
+Line 220
+Line 221
+Line 222
+Line 223
+Line 224
+Line 225
+Line 226
+Line 227
+Line 228
+Line 229
+Line 230
+Line 231
+Line 232
+Line 233
+Line 234
+Line 235
+Line 236
+Line 237
+Line 238
+Line 239
+Line 240
+Line 241
+Line 242
+Line 243
+Line 244
+Line 245
+Line 246
+Line 247
+Line 248
+Line 249
+Line 250
+This multi-line comment ensures the code exceeds 300 lines for testing.
+*/
+
+#define maxcount12@r 100 // Valid identifier
+
+// Structure definition with valid identifiers
+typedef struct {
+    char nameab12@r[20]; // Valid: 4 letters (n,a,m,e), 2 digits, ends with @r
+    char gendef34@r[6];  // Valid: 6 letters (g,e,n,d,e,f), 2 digits, ends with @r
+    int agebc56@r;       // Valid: 5 letters (a,g,e,b,c), 2 digits, ends with @r
+    struct node *linkxy78@r; // Valid: 6 letters (l,i,n,k,x,y), 2 digits, ends with @r
+} nodegh90@r; // Valid: 6 letters (n,o,d,e,g,h), 2 digits, ends with @r
+
+nodegh90@r *startkl12@r = NULL; // Valid: 6 letters (s,t,a,r,t,k,l), 2 digits, ends with @r
+
+// Global variables with valid and invalid identifiers
+int countmn34@r; // Valid: 6 letters (c,o,u,n,t,m,n), 2 digits, ends with @r
+char typepq56@r[60]; // Valid: 6 letters (t,y,p,e,p,q), 2 digits, ends with @r
+char placevw78@r[30]; // Valid: 6 letters (p,l,a,c,e,v,w), 2 digits, ends with @r
+char datexy90@r[20]; // Valid: 6 letters (d,a,t,e,x,y), 2 digits, ends with @r
+int amountst12@r; // Valid: 7 letters (a,m,o,u,n,t,s), 2 digits, ends with @r
+
+// Invalid identifiers to test error handling
+int aaaa12@r; // Invalid: 4 consecutive identical letters (aaaa)
+int abcd111@r; // Invalid: 3 consecutive identical digits (111)
+int abc@r; // Invalid: too few letters (3)
+int abcdefghi12@r; // Invalid: too many letters (9)
+int abcd1@r; // Invalid: too few digits (1)
+int abcd12345@r; // Invalid: too many digits (5)
+int abcd12@s; // Invalid: wrong ending (@s instead of @r)
+int Abcd12@r; // Invalid: uppercase letter
+int abcd-12@r; // Invalid: contains hyphen
+int _abcd12@r; // Invalid: underscore prefix
+
+// Function declarations with valid identifiers
+void headingkl34@r();
+void detailsmn56@r();
+void interop78@r();
+void indiast90@r();
+void receiptvw12@r();
+void addnodekl34@r(char lname[20], char lgen[6], int lage);
+void brochurexy56@r();
+
+// Main function
+int main() {
+    int choiceab12@r; // Valid: 6 letters (c,h,o,i,c,e), 2 digits, ends with @r
+    int loopbc34@r; // Valid: 6 letters (l,o,o,p,b,c), 2 digits, ends with @r
+    float ratecd56@r = 3.14; // Valid: 6 letters (r,a,t,e,c,d), 2 digits, ends with @r
+    char msgde78@r[] = "Tourism Management System"; // Valid: 6 letters (m,s,g,d,e), 2 digits, ends with @r
+    int arrayfg90@r[maxcount12@r]; // Valid: 6 letters (a,r,r,a,y,f,g), 2 digits, ends with @r
+
+    // Test operators
+    choiceab12@r = 5;
+    choiceab12@r++;
+    choiceab12@r--;
+    choiceab12@r += 2;
+    choiceab12@r -= 1;
+    choiceab12@r *= 3;
+    choiceab12@r /= 2;
+
+    // Test conditional statements
+    if (choiceab12@r == 5) {
+        printf("Equal\n");
+    } else if (choiceab12@r != 6) {
+        printf("Not equal\n");
+    } else if (choiceab12@r <= 10 && choiceab12@r >= 0) {
+        printf("In range\n");
+    } else if (choiceab12@r > 10 || choiceab12@r < 0) {
+        printf("Out of range\n");
+    }
+
+    // Test loops
+    for (loopbc34@r = 0; loopbc34@r < 10; loopbc34@r++) {
+        arrayfg90@r[loopbc34@r] = loopbc34@r;
+    }
+
+    loopbc34@r = 0;
+    while (loopbc34@r < 5) {
+        loopbc34@r++;
+    }
+
+    loopbc34@r = 0;
+    do {
+        loopbc34@r++;
+    } while (loopbc34@r < 5);
+
+    // Test switch
+    switch (choiceab12@r) {
+        case 1: printf("One\n"); break;
+        case 2: printf("Two\n"); break;
+        default: printf("Default\n"); break;
+    }
+
+    // Test additional keywords
+    const int constgh12@r = 5; // Valid: 6 letters (c,o,n,s,t,g,h), 2 digits, ends with @r
+    static int staticij34@r = 0; // Valid: 7 letters (s,t,a,t,i,c,i,j), 2 digits, ends with @r
+    unsigned int unsigkl56@r = 10; // Valid: 7 letters (u,n,s,i,g,k,l), 2 digits, ends with @r
+    signed int sigmn78@r = -5; // Valid: 6 letters (s,i,g,m,n), 2 digits, ends with @r
+    long longop90@r = 100; // Valid: 6 letters (l,o,n,g,o,p), 2 digits, ends with @r
+    short shortqr12@r = 20; // Valid: 7 letters (s,h,o,r,t,q,r), 2 digits, ends with @r
+
+    // Additional valid identifiers
+    int @travelmn34@r = 0; // Valid: 6 letters (t,r,a,v,e,l), 2 digits, ends with @r
+    int #bookst56@r = 1; // Valid: 6 letters (b,o,o,k,s,t), 2 digits, ends with @r
+    int !tourvw78@r = 2; // Valid: 5 letters (t,o,u,r,v,w), 2 digits, ends with @r
+    double costxy90@r = 1500.50; // Valid: 5 letters (c,o,s,t,x,y), 2 digits, ends with @r
+
+    // Call functions
+    headingkl34@r();
+
+    printf("\t\t\t\t1. International Tour Packages\n");
+    printf("\t\t\t\t2. India Tour Packages\n");
+    printf("\t\t\t\tEnter Choice: ");
+    scanf("%d", &choiceab12@r);
+
+    switch (choiceab12@r) {
+        case 1: interop78@r(); break;
+        case 2: indiast90@r(); break;
+        default: printf("Enter Right Choice...\n"); break;
+    }
+
+    detailsmn56@r();
+    brochurexy56@r();
+    receiptvw12@r();
+
+    return 0;
+}
+
+void headingkl34@r() {
+    system("cls");
+    printf("\t\t\t\t***** Tourism Management System *****\n");
+}
+
+void indiast90@r() {
+    int choicebc12@r; // Valid: 6 letters (c,h,o,i,c,e,b,c), 2 digits, ends with @r
+    system("cls");
+    headingkl34@r();
+    strcpy(typepq56@r, "India Tour Package");
+    printf("\t\t\t\t1. Shimla Tour Packages 6 Days 7 Nights (18880/-)\n");
+    printf("\t\t\t\t2. Kashmir Tour Packages 5 Days 4 Nights (35500/-)\n");
+    printf("\t\t\t\t3. Kolkata Tour Packages 11 Days 10 Nights (10000/-)\n");
+    printf("\t\t\t\t4. Goa Tour Packages 4 Days 3 Nights (12000/-)\n");
+    printf("\t\t\t\t5. Kerala Tour Packages 7 Days 6 Nights (20000/-)\n");
+    printf("\t\t\t\t6. Rajasthan Tour Packages 8 Days 7 Nights (25000/-)\n");
+    printf("\t\t\t\t7. Mumbai Tour Packages 3 Days 2 Nights (8000/-)\n");
+    printf("\t\t\t\t8. Delhi Tour Packages 5 Days 4 Nights (15000/-)\n");
+    printf("\t\t\t\t9. Taj Mahal Tour Packages 2 Days 1 Night (5000/-)\n");
+    printf("\t\t\t\t10. Himalayan Tour Packages 10 Days 9 Nights (30000/-)\n");
+    printf("\t\t\t\tEnter Choice: ");
+    scanf("%d", &choicebc12@r);
+    switch (choicebc12@r) {
+        case 1: strcpy(placevw78@r, "Shimla Tour"); amountst12@r = 18880; break;
+        case 2: strcpy(placevw78@r, "Kashmir Tour"); amountst12@r = 35500; break;
+        case 3: strcpy(placevw78@r, "Kolkata Tour"); amountst12@r = 10000; break;
+        case 4: strcpy(placevw78@r, "Goa Tour"); amountst12@r = 12000; break;
+        case 5: strcpy(placevw78@r, "Kerala Tour"); amountst12@r = 20000; break;
+        case 6: strcpy(placevw78@r, "Rajasthan Tour"); amountst12@r = 25000; break;
+        case 7: strcpy(placevw78@r, "Mumbai Tour"); amountst12@r = 8000; break;
+        case 8: strcpy(placevw78@r, "Delhi Tour"); amountst12@r = 15000; break;
+        case 9: strcpy(placevw78@r, "Taj Mahal Tour"); amountst12@r = 5000; break;
+        case 10: strcpy(placevw78@r, "Himalayan Tour"); amountst12@r = 30000; break;
+        default: printf("Enter Correct Choice...\n"); break;
+    }
+}
+
+void interop78@r() {
+    int choicecd34@r; // Valid: 6 letters (c,h,o,i,c,e,c,d), 2 digits, ends with @r
+    system("cls");
+    headingkl34@r();
+    strcpy(typepq56@r, "International Tour Package");
+    printf("\t\t\t\t1. England Tour Packages 6 Days 7 Nights (28880/-)\n");
+    printf("\t\t\t\t2. Thailand Tour Packages 5 Days 4 Nights (15500/-)\n");
+    printf("\t\t\t\t3. New York Tour Packages 11 Days 10 Nights (567800/-)\n");
+    printf("\t\t\t\t4. Paris Tour Packages 7 Days 6 Nights (45000/-)\n");
+    printf("\t\t\t\t5. Australia Tour Packages 10 Days 9 Nights (60000/-)\n");
+    printf("\t\t\t\t6. Japan Tour Packages 8 Days 7 Nights (50000/-)\n");
+    printf("\t\t\t\t7. Dubai Tour Packages 5 Days 4 Nights (30000/-)\n");
+    printf("\t\t\t\t8. Singapore Tour Packages 4 Days 3 Nights (25000/-)\n");
+    printf("\t\t\t\t9. Maldives Tour Packages 6 Days 5 Nights (40000/-)\n");
+    printf("\t\t\t\t10. Europe Tour Packages 15 Days 14 Nights (100000/-)\n");
+    printf("\t\t\t\tEnter Choice: ");
+    scanf("%d", &choicecd34@r);
+    switch (choicecd34@r) {
+        case 1: strcpy(placevw78@r, "England Tour"); amountst12@r = 28880; break;
+        case 2: strcpy(placevw78@r, "Thailand Tour"); amountst12@r = 15500; break;
+        case 3: strcpy(placevw78@r, "New York Tour"); amountst12@r = 567800; break;
+        case 4: strcpy(placevw78@r, "Paris Tour"); amountst12@r = 45000; break;
+        case 5: strcpy(placevw78@r, "Australia Tour"); amountst12@r = 60000; break;
+        case 6: strcpy(placevw78@r, "Japan Tour"); amountst12@r = 50000; break;
+        case 7: strcpy(placevw78@r, "Dubai Tour"); amountst12@r = 30000; break;
+        case 8: strcpy(placevw78@r, "Singapore Tour"); amountst12@r = 25000; break;
+        case 9: strcpy(placevw78@r, "Maldives Tour"); amountst12@r = 40000; break;
+        case 10: strcpy(placevw78@r, "Europe Tour"); amountst12@r = 100000; break;
+        default: printf("Enter Correct Choice...\n"); break;
+    }
+}
+
+void detailsmn56@r() {
+    int loopde78@r, agefg90@r; // Valid identifiers
+    char namehi12@r[20], genjk34@r[6]; // Valid identifiers
+    system("cls");
+    headingkl34@r();
+    printf("\t\t\t\tEnter Number Of Passengers: ");
+    scanf("%d", &countmn34@r);
+    printf("\t\t\t\tEnter Date (DD/MM/YY): ");
+    fflush(stdin);
+    gets(datexy90@r);
+    for (loopde78@r = 1; loopde78@r <= countmn34@r; loopde78@r++) {
+        system("cls");
+        headingkl34@r();
+        printf("\t\t\t\tEnter Details of Passenger %d\n", loopde78@r);
+        printf("\t\t\t\tEnter Name: ");
+        fflush(stdin);
+        gets(namehi12@r);
+        printf("\t\t\t\tEnter Gender (Male/Female): ");
+        gets(genjk34@r);
+        printf("\t\t\t\tEnter Age: ");
+        scanf("%d", &agefg90@r);
+        addnodekl34@r(namehi12@r, genjk34@r, agefg90@r);
+    }
+}
+
+void addnodekl34@r(char lname[20], char lgen[6], int lage) {
+    nodegh90@r *newnodeab12@r = (nodegh90@r *)malloc(sizeof(nodegh90@r)); // Valid: 6 letters (n,e,w,n,o,d,e), 2 digits, ends with @r
+    strcpy(newnodeab12@r->nameab12@r, lname);
+    strcpy(newnodeab12@r->gendef34@r, lgen);
+    newnodeab12@r->agebc56@r = lage;
+    newnodeab12@r->linkxy78@r = NULL;
+    if (startkl12@r == NULL) {
+        startkl12@r = newnodeab12@r;
+    } else {
+        nodegh90@r *tempbc34@r = startkl12@r; // Valid: 6 letters (t,e,m,p,b,c), 2 digits, ends with @r
+        while (tempbc34@r->linkxy78@r != NULL) {
+            tempbc34@r = tempbc34@r->linkxy78@r;
+        }
+        tempbc34@r->linkxy78@r = newnodeab12@r;
+    }
+}
+
+void receiptvw12@r() {
+    nodegh90@r *tempcd56@r = startkl12@r; // Valid: 6 letters (t,e,m,p,c,d), 2 digits, ends with @r
+    int loopfg78@r = 1; // Valid: 6 letters (l,o,o,p,f,g), 2 digits, ends with @r
+    system("cls");
+    headingkl34@r();
+    printf("\t\t\t\t******** Receipt ********\n");
+    printf("\t\t\t\tTour Type: %s\n", typepq56@r);
+    printf("\t\t\t\tPlace: %s\n", placevw78@r);
+    printf("\t\t\t\tAmount Per Person: %d\n", amountst12@r);
+    printf("\t\t\t\tTotal Amount: %d\n", amountst12@r * countmn34@r);
+    printf("\t\t\t\tDate: %s\n", datexy90@r);
+    printf("\t\t\t\tPassengers:\n");
+    while (tempcd56@r != NULL) {
+        printf("\t\t\t\tPassenger %d:\n", loopfg78@r);
+        printf("\t\t\t\tName : %s\n", tempcd56@r->nameab12@r);
+        printf("\t\t\t\tGender : %s\n", tempcd56@r->gendef34@r);
+        printf("\t\t\t\tAge : %d\n", tempcd56@r->agebc56@r);
+        tempcd56@r = tempcd56@r->linkxy78@r;
+        loopfg78@r++;
+    }
+}
+
+void brochurexy56@r() {
+    system("cls");
+    headingkl34@r();
+    printf("\t\t\t\tBrochure for %s\n", placevw78@r);
+    printf("\t\t\t\tDay 1: Arrival and check-in\n");
+    printf("\t\t\t\tDay 2: Local sightseeing\n");
+    printf("\t\t\t\tDay 3: Adventure activities\n");
+    printf("\t\t\t\tDay 4: Cultural experiences\n");
+    printf("\t\t\t\tDay 5: Relaxation and spa\n");
+    printf("\t\t\t\tDay 6: Shopping and souvenirs\n");
+    printf("\t\t\t\tDay 7: Departure\n");
+    printf("\t\t\t\tEnjoy the beautiful landscapes.\n");
+    printf("\t\t\t\tExperience local cuisine.\n");
+    printf("\t\t\t\tVisit historical sites.\n");
+    printf("\t\t\t\tParticipate in festivals.\n");
+    printf("\t\t\t\tExplore nature trails.\n");
+    printf("\t\t\t\tMeet friendly locals.\n");
+    printf("\t\t\t\tCapture memorable photos.\n");
+    printf("\t\t\t\tCreate lasting memories.\n");
+}

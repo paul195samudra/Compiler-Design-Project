@@ -1,0 +1,66 @@
+***************************************************
+*          LEXICAL ANALYSIS REPORT                 *
+*         Tourist Management System Code           *
+***************************************************
+
+Valid Variables/Identifiers (Count: 26): [nameab12@r, gendef34@r, agebc56@r, countmn34@r, typepq56@r, placevw78@r, datexy90@r, interop78@r, indiast90@r, loopbc34@r, ratecd56@r, msgde78@r, arrayfg90@r, constgh12@r, unsigkl56@r, sigmn78@r, longop90@r, shortqr12@r, bookst56@r, tourvw78@r, costxy90@r, loopde78@r, agefg90@r, namehi12@r, genjk34@r, loopfg78@r]
+
+Invalid Variables/Identifiers (Count: 24): [amountst12@r, aaaa12@r, abcd111@r, abc@r, abcdefghi12@r, abcd1@r, abcd12345@r, abcd12@s, Abcd12@r, abcd, @r, _abcd12@r, headingkl34@r, detailsmn56@r, receiptvw12@r, addnodekl34@r, brochurexy56@r, main, choiceab12@r, maxcount12@r, staticij34@r, @travelmn34@r, choicebc12@r, choicecd34@r]
+
+=========== TOKENS BY CATEGORY ===========
+
+Keywords: [include, define, typedef, struct, char, int, void, float, if, else, for, while, do, switch, case, break, default, const, static, unsigned, signed, long, short, double, return]
+
+Identifiers: [nameab12@r, gendef34@r, agebc56@r, countmn34@r, typepq56@r, placevw78@r, datexy90@r, interop78@r, indiast90@r, loopbc34@r, ratecd56@r, msgde78@r, arrayfg90@r, constgh12@r, unsigkl56@r, sigmn78@r, longop90@r, shortqr12@r, bookst56@r, tourvw78@r, costxy90@r, loopde78@r, agefg90@r, namehi12@r, genjk34@r, loopfg78@r]
+
+Numeric: [100, 20, 6, 60, 30, 12, 3.14, 5, 2, 1, 3, 10, 0, 1500.50, 18880, 35500, 10000, 4, 12000, 20000, 25000, 7, 8000, 8, 15000, 9, 5000, 30000, 28880, 15500, 567800, 45000, 60000, 50000, 40000, 100000]
+
+String Literals: ["Tourism Management System", "Equal\n", "Not equal\n", "In range\n", "Out of range\n", "One\n", "Two\n", "Default\n", "\t\t\t\t1. International Tour Packages\n", "\t\t\t\t2. India Tour Packages\n", "\t\t\t\tEnter Choice: ", "%d", "Enter Right Choice...\n", "cls", "\t\t\t\t***** Tourism Management System *****\n", "India Tour Package", "\t\t\t\t1. Shimla Tour Packages 6 Days 7 Nights (18880/-)\n", "\t\t\t\t2. Kashmir Tour Packages 5 Days 4 Nights (35500/-)\n", "\t\t\t\t3. Kolkata Tour Packages 11 Days 10 Nights (10000/-)\n", "\t\t\t\t4. Goa Tour Packages 4 Days 3 Nights (12000/-)\n", "\t\t\t\t5. Kerala Tour Packages 7 Days 6 Nights (20000/-)\n", "\t\t\t\t6. Rajasthan Tour Packages 8 Days 7 Nights (25000/-)\n", "\t\t\t\t7. Mumbai Tour Packages 3 Days 2 Nights (8000/-)\n", "\t\t\t\t8. Delhi Tour Packages 5 Days 4 Nights (15000/-)\n", "\t\t\t\t9. Taj Mahal Tour Packages 2 Days 1 Night (5000/-)\n", "\t\t\t\t10. Himalayan Tour Packages 10 Days 9 Nights (30000/-)\n", "Shimla Tour", "Kashmir Tour", "Kolkata Tour", "Goa Tour", "Kerala Tour", "Rajasthan Tour", "Mumbai Tour", "Delhi Tour", "Taj Mahal Tour", "Himalayan Tour", "Enter Correct Choice...\n", "International Tour Package", "\t\t\t\t1. England Tour Packages 6 Days 7 Nights (28880/-)\n", "\t\t\t\t2. Thailand Tour Packages 5 Days 4 Nights (15500/-)\n", "\t\t\t\t3. New York Tour Packages 11 Days 10 Nights (567800/-)\n", "\t\t\t\t4. Paris Tour Packages 7 Days 6 Nights (45000/-)\n", "\t\t\t\t5. Australia Tour Packages 10 Days 9 Nights (60000/-)\n", "\t\t\t\t6. Japan Tour Packages 8 Days 7 Nights (50000/-)\n", "\t\t\t\t7. Dubai Tour Packages 5 Days 4 Nights (30000/-)\n", "\t\t\t\t8. Singapore Tour Packages 4 Days 3 Nights (25000/-)\n", "\t\t\t\t9. Maldives Tour Packages 6 Days 5 Nights (40000/-)\n", "\t\t\t\t10. Europe Tour Packages 15 Days 14 Nights (100000/-)\n", "England Tour", "Thailand Tour", "New York Tour", "Paris Tour", "Australia Tour", "Japan Tour", "Dubai Tour", "Singapore Tour", "Maldives Tour", "Europe Tour", "\t\t\t\tEnter Number Of Passengers: ", "\t\t\t\tEnter Date (DD/MM/YY): ", "\t\t\t\tEnter Details of Passenger %d\n", "\t\t\t\tEnter Name: ", "\t\t\t\tEnter Gender (Male/Female): ", "\t\t\t\tEnter Age: ", "\t\t\t\t******** Receipt ********\n", "\t\t\t\tTour Type: %s\n", "\t\t\t\tPlace: %s\n", "\t\t\t\tAmount Per Person: %d\n", "\t\t\t\tTotal Amount: %d\n", "\t\t\t\tDate: %s\n", "\t\t\t\tPassengers:\n", "\t\t\t\tPassenger %d:\n", "\t\t\t\tName : %s\n", "\t\t\t\tGender : %s\n", "\t\t\t\tAge : %d\n", "\t\t\t\tBrochure for %s\n", "\t\t\t\tDay 1: Arrival and check-in\n", "\t\t\t\tDay 2: Local sightseeing\n", "\t\t\t\tDay 3: Adventure activities\n", "\t\t\t\tDay 4: Cultural experiences\n", "\t\t\t\tDay 5: Relaxation and spa\n", "\t\t\t\tDay 6: Shopping and souvenirs\n", "\t\t\t\tDay 7: Departure\n", "\t\t\t\tEnjoy the beautiful landscapes.\n", "\t\t\t\tExperience local cuisine.\n", "\t\t\t\tVisit historical sites.\n", "\t\t\t\tParticipate in festivals.\n", "\t\t\t\tExplore nature trails.\n", "\t\t\t\tMeet friendly locals.\n", "\t\t\t\tCapture memorable photos.\n", "\t\t\t\tCreate lasting memories.\n"]
+
+Multi-char Operators: [++, --, +=, -=, *=, /=, ==, !=, <=, &&, >=, ||]
+
+Operators: [<, >, *, =, -, !, &]
+
+Separators: [;, ,, :]
+
+Brackets: [{, [, ], }, (, )]
+
+Special Symbols: [#, .]
+
+Others: [stdio, h, stdlib, string, ctype, maxcount12@r, nameab12@r, gendef34@r, agebc56@r, node, linkxy78@r, nodegh90@r, startkl12@r, NULL, countmn34@r, typepq56@r, placevw78@r, datexy90@r, amountst12@r, aaaa12@r, abcd111@r, abc@r, abcdefghi12@r, abcd1@r, abcd12345@r, abcd12@s, Abcd12@r, abcd, @r, _abcd12@r, headingkl34@r, detailsmn56@r, interop78@r, indiast90@r, receiptvw12@r, addnodekl34@r, lname, lgen, lage, brochurexy56@r, main, choiceab12@r, loopbc34@r, ratecd56@r, msgde78@r, arrayfg90@r, printf, constgh12@r, staticij34@r, unsigkl56@r, sigmn78@r, longop90@r, shortqr12@r, @travelmn34@r, bookst56@r, tourvw78@r, costxy90@r, scanf, system, choicebc12@r, strcpy, choicecd34@r, loopde78@r, agefg90@r, namehi12@r, genjk34@r, fflush, stdin, gets, newnodeab12@r, malloc, sizeof, tempbc34@r, tempcd56@r, loopfg78@r]
+
+=========== SYMBOL TABLE ===========
+---------------------------------------------------------------
+| Name            | DataType               | Value          | Line |
+---------------------------------------------------------------
+| nameab12@r      | char                  | -              | 266  |
+| gendef34@r      | char                  | -              | 267  |
+| agebc56@r       | int                   | -              | 268  |
+| countmn34@r     | int                   | -              | 275  |
+| typepq56@r      | char                  | -              | 276  |
+| placevw78@r     | char                  | -              | 277  |
+| datexy90@r      | char                  | -              | 278  |
+| interop78@r     | void                  | -              | 296  |
+| indiast90@r     | void                  | -              | 297  |
+| loopbc34@r      | int                   | -              | 305  |
+| ratecd56@r      | float                 | 3.14           | 306  |
+| msgde78@r       | char                  | -              | 307  |
+| arrayfg90@r     | int                   | -              | 308  |
+| constgh12@r     | const int             | 5              | 353  |
+| unsigkl56@r     | unsigned int          | 10             | 355  |
+| sigmn78@r       | signed int            | -              | 356  |
+| longop90@r      | long                  | 100            | 357  |
+| shortqr12@r     | short                 | 20             | 358  |
+| bookst56@r      | int                   | 1              | 362  |
+| tourvw78@r      | int                   | 2              | 363  |
+| costxy90@r      | double                | 1500.50        | 364  |
+| loopde78@r      | int                   | -              | 457  |
+| agefg90@r       | int                   | -              | 457  |
+| namehi12@r      | char                  | -              | 458  |
+| genjk34@r       | char                  | -              | 458  |
+| loopfg78@r      | int                   | 1              | 500  |
+---------------------------------------------------------------
+
+***************************************************
+*                 END OF REPORT                    *
+***************************************************
